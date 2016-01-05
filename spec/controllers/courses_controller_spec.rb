@@ -65,7 +65,7 @@ describe CoursesController do
     end
 
     context 'when course is not created' do
-      let(:course) { build(:course, name: '') } # invalid CPF
+      let(:course) { build(:course, name: '') }
 
       before(:each) do
         expect_any_instance_of(Course).to receive(:save).and_return(false)
@@ -130,6 +130,30 @@ describe CoursesController do
 
       it 'renders the edit again' do
         expect(response).to render_template('edit')
+      end
+    end
+  end
+
+  describe '#destroy' do
+    let(:course) { create(:course) }
+
+    it 'finds the requested course' do
+      delete :destroy, id: course.id
+      expect(assigns(:model)).to eq(course)
+    end
+
+    context 'when Course is deleted' do
+      before(:each) do
+        expect_any_instance_of(Course).to receive(:destroy!)
+        delete :destroy, id: course.id
+      end
+
+      it 'sets a success flash message' do
+        expect(flash[:success]).to eq('Curso excluído com sucesso!')
+      end
+
+      it 'redirects to the courses page' do
+        expect(response).to redirect_to(courses_path)
       end
     end
   end

@@ -1,7 +1,7 @@
 class ClassroomsController < BaseController
-  before_action :find_model, only: [:update, :edit, :destroy]
+  before_action :find_model, only: [:destroy]
 
-  #index, new, create, and destroy from BaseController
+  # index, new, create, and destroy from BaseController
 
   def edit
     redirect_to classrooms_path
@@ -12,6 +12,7 @@ class ClassroomsController < BaseController
   end
 
   private
+
     def model_class
       Classroom
     end

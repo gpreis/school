@@ -41,10 +41,10 @@ describe StudentsController do
 
   describe '#create' do
     let(:student) { build(:student) }
-    let(:params) { {student: student.attributes.slice('name', 'register_number')} }
+    let(:params) { { student: student.attributes.slice('name', 'register_number') } }
 
     it 'requires the student params' do
-      invalid_params = {name: 'teste'}
+      invalid_params = { name: 'teste' }
       expect { post :create, invalid_params }.to raise_error(ActionController::ParameterMissing)
     end
 
@@ -65,7 +65,7 @@ describe StudentsController do
     end
 
     context 'when student is not created' do
-      let(:student) { build(:student, name: '') } # invalid CPF
+      let(:student) { build(:student, name: '') }
 
       before(:each) do
         expect_any_instance_of(Student).to receive(:save).and_return(false)
@@ -90,12 +90,12 @@ describe StudentsController do
     let(:student) { create(:student) }
 
     it 'finds the requested student' do
-      put :update, id: student.id, student: {foo: 'bar'}
+      put :update, id: student.id, student: { foo: 'bar' }
       expect(assigns(:model)).to eql(student)
     end
 
     it 'raise error when trying to access a inexistent student' do
-      expect{ put :update, id: 0, student: {foo: 'bar'} }.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ put :update, id: 0, student: { foo: 'bar' } }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     context 'when Student is updated' do
@@ -130,6 +130,30 @@ describe StudentsController do
 
       it 'renders the edit again' do
         expect(response).to render_template('edit')
+      end
+    end
+  end
+
+  describe '#destroy' do
+    let(:student) { create(:student) }
+
+    it 'finds the requested student' do
+      delete :destroy, id: student.id
+      expect(assigns(:model)).to eq(student)
+    end
+
+    context 'when Student is deleted' do
+      before(:each) do
+        expect_any_instance_of(Student).to receive(:destroy!)
+        delete :destroy, id: student.id
+      end
+
+      it 'sets a success flash message' do
+        expect(flash[:success]).to eq('Estudante excluído com sucesso!')
+      end
+
+      it 'redirects to the students page' do
+        expect(response).to redirect_to(students_path)
       end
     end
   end

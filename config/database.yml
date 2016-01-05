@@ -3,13 +3,15 @@ development:
   encoding: unicode
   database: proficiency-test_development
   pool: 5
+  host: localhost
   username: postgres
-  password: "postgres"
+  password: postgres
 
 test:
   adapter: postgresql
   encoding: unicode
   database: proficiency-test_test
   pool: 5
+  host: localhost
   username: postgres
-  password: "postgres"
+  password: postgres
