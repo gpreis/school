@@ -15,3 +15,10 @@ test:
   host: localhost
   username: postgres
   password: postgres
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: proficiency-test_production
+  username: postgres
+  password: postgres
