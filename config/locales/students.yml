@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      student:
+        one: 'Estudante'
+        many: 'Estudantes'
+        new: 'Novo Estudante'
+    attributes:
+      student:
+        name: 'Nome'
+        register_number: 'Número de Registro'
+        status: 'Estado'

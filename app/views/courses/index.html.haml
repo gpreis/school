@@ -1,0 +1,20 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th= Course.human_attribute_name(:name)
+      %th= Course.human_attribute_name(:description)
+      %th.col-md-2 
+        Ações
+  %tbody
+    - @models.each do |course|
+      %tr
+        %th= course.name
+        %th= course.description
+        %th.col-md-2
+          = link_to 'Alterar', edit_course_path(course)
+          |
+          = link_to 'Excluir', course, method: :delete, data: {confirm: "A exclusão de um curso é irreversível! Você tem certeza que deseja excluir o curso '#{course.name}'?"}
+
+.container-fluid.form-end
+  %a.btn.btn-success.pull-right{href: new_course_path}
+    Novo Curso

@@ -1,0 +1,20 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th= Student.human_attribute_name(:name)
+      %th= Student.human_attribute_name(:register_number)
+      %th.col-md-2 
+        Ações
+  %tbody
+    - @models.each do |student|
+      %tr
+        %th= student.name
+        %th= student.register_number
+        %th.col-md-2
+          = link_to 'Alterar', edit_student_path(student)
+          |
+          = link_to 'Excluir', student, method: :delete, data: {confirm: "A exclusão de um estudante é irreversível! Você tem certeza que deseja excluir o estudante '#{student.name}'?"}
+
+.container-fluid.form-end
+  %a.btn.btn-success.pull-right{href: new_student_path}
+    Novo Estudante

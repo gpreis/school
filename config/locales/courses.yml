@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      course:
+        one: 'Curso'
+        many: 'Cursos'
+        new: 'Novo Curso'
+    attributes:
+      course:
+        name: 'Nome'
+        description: 'Descrição'
+        status: 'Estado'
