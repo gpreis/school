@@ -10,14 +10,14 @@
       %nav.navbar.navbar-default.navbar-client.center-align{role: :navigation}
         .container.center-align
           %ul.nav.navbar-nav.navbar-right
-            %li
+            %li#statics
               = link_to 'Home', root_path
-            %li
-              = link_to Classroom.model_name.human.pluralize, classrooms_path
-            %li
-              = link_to Student.model_name.human.pluralize, students_path
-            %li
+            %li#courses
               = link_to Course.model_name.human.pluralize, courses_path
+            %li#students
+              = link_to Student.model_name.human.pluralize, students_path
+            %li#classrooms
+              = link_to Classroom.model_name.human.pluralize, classrooms_path
     %section#content.container
       .flash
         - flash.each do |name, msg|

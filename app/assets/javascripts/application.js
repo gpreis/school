@@ -31,4 +31,6 @@ $(document).on('ready page:load', function () {
     console.log(e);
     console.log("\"School." + School.actual.controller + "." + School.actual.action + ".init()\" não existe.");
   }
+  $("li").removeClass("active");
+  $("li#" + School.actual.controller).addClass("active");
 });

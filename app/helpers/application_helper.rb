@@ -5,7 +5,7 @@ module ApplicationHelper
 
   def delete_link(object)
     link_to 'Excluir', object, method: :delete, data: {
-      confirm: "A exclusão de um #{model_name(object)} é irreversível! Você tem certeza que deseja excluir o #{model_name(object)} '#{object.name}'?"
+      confirm: "A exclusão de um #{model_name(object)} é irreversível! Você tem certeza que deseja excluir o #{model_name(object)} '#{object.name}'? As matrículas relacionadas serão apagadas."
     }
   end
 
