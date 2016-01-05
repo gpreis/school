@@ -13,4 +13,12 @@ describe Student do
     it { is_expected.to validate_uniqueness_of(:register_number) }
     it { is_expected.to validate_numericality_of(:status) }
   end
+
+  describe '#to_s' do
+    let(:student) { build(:student) }
+    let(:to_s) { [student.name, student.register_number].join(" – ") }
+    subject { student.to_s }
+
+    it { is_expected.to eq(to_s) }
+  end
 end

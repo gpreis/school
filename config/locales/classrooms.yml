@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      classroom:
+        one: 'Matrícula'
+        many: 'Matrículas'
+        new: 'Novo Matrícula'
+    attributes:
+      classroom:
+        student_id: 'Estudante'
+        course_id: 'Curso'
+        created_at: 'Matrículado em '
+        updated_at: 'Atualizado em '

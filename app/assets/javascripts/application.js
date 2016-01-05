@@ -14,4 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require select2
 //= require_tree .
+
+// default init
+$(document).on('ready page:load', function () {
+  School.actual = {};
+
+  School.actual.controller = $('body').attr('data-controller');
+  School.actual.action = $('body').attr('data-action');
+  try { School[School.actual.controller][School.actual.action].init.call();
+  } catch(e) {
+    console.log(e);
+    console.log("\"School." + School.actual.controller + "." + School.actual.action + ".init()\" não existe.");
+  }
+});

@@ -13,4 +13,11 @@ describe Course do
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_numericality_of(:status) }
   end
+
+  describe '#to_s' do
+    let(:course) { build(:course) }
+    subject { course.to_s }
+
+    it { is_expected.to eq(course.name) }
+  end
 end

@@ -1,0 +1,16 @@
+= simple_form_for [classroom] do |f|
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title Informações do Estudante
+    .panel-body
+      .row
+        .col-md-6{class: extra_student_id_class}
+          = f.label :student_id
+          = collection_select(:classroom, :student_id, Student.all, :id, :to_s, {prompt: true, selected: classroom.student_id}, {class: "form-control"})
+          = f.error :student_id
+        .col-md-6{class: extra_course_id_class}
+          = f.label :course_id
+          = collection_select(:classroom, :course_id, Course.all, :id, :to_s, {prompt: true, selected: classroom.course_id}, {class: "form-control"})
+          = f.error :course_id
+  %a.btn.btn-default{href: classrooms_path} Voltar
+  = f.submit 'Salvar', class: "btn btn-success pull-right"

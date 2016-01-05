@@ -1,0 +1,20 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th= Classroom.human_attribute_name(:id)
+      %th= Classroom.human_attribute_name(:student_id)
+      %th= Classroom.human_attribute_name(:course_id)
+      %th.col-md-2 
+        Ação
+  %tbody
+    - @models.each do |classroom|
+      %tr
+        %th= classroom.id
+        %th= classroom.student
+        %th= classroom.course
+        %th.col-md-2
+          = link_to 'Excluir', classroom, method: :delete, data: {confirm: "A exclusão de uma matrícula é irreversível! Você tem certeza que deseja excluir essa matrícula?"}
+
+.container-fluid.form-end
+  %a.btn.btn-success.pull-right{href: new_classroom_path}
+    Nova Matrícula

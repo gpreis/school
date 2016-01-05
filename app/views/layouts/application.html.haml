@@ -5,7 +5,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  %body{"data-controller"=> controller.controller_name, "data-action" => controller.action_name}
     %header#header
       %nav.navbar.navbar-default.navbar-client.center-align{role: :navigation}
         .container.center-align
@@ -13,8 +13,7 @@
             %li
               = link_to 'Home', root_path
             %li
-              %a
-                Matrícula
+              = link_to Classroom.model_name.human.pluralize, classrooms_path
             %li
               = link_to Student.model_name.human.pluralize, students_path
             %li
