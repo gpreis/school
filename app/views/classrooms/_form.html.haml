@@ -4,11 +4,11 @@
       %h3.panel-title Informações do Estudante
     .panel-body
       .row
-        .col-md-6{class: extra_student_id_class}
+        .col-md-6{class: extra_student_id_class(@modal)}
           = f.label :student_id
           = collection_select(:classroom, :student_id, Student.all, :id, :to_s, {prompt: true, selected: classroom.student_id}, {class: "form-control"})
           = f.error :student_id
-        .col-md-6{class: extra_course_id_class}
+        .col-md-6{class: extra_course_id_class(@modal)}
           = f.label :course_id
           = collection_select(:classroom, :course_id, Course.all, :id, :to_s, {prompt: true, selected: classroom.course_id}, {class: "form-control"})
           = f.error :course_id
