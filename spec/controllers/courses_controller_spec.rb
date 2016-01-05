@@ -13,6 +13,19 @@ describe CoursesController do
     end
   end
 
+  describe '#show' do
+    let(:course) { create(:course) }
+    before(:each) { get :show, id: course.id }
+
+    it 'renders the new template' do
+      expect(response).to render_template('show')
+    end
+
+    it 'assigns @model' do
+      expect(assigns(:model)).to eq(course)
+    end
+  end
+
   describe '#edit' do
     let(:course) { create(:course) }
     before(:each) { get :edit, id: course.id }

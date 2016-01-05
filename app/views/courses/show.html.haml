@@ -1,0 +1,30 @@
+%h3
+  = Course.model_name.human
+.row
+  .col-md-2
+    %label
+      = Course.human_attribute_name(:id)
+  .col-md-10
+    = @model.id
+.row
+  .col-md-2
+    %label
+      = Course.human_attribute_name(:name)
+  .col-md-10
+    = @model.name
+.row
+  .col-md-2
+    %label
+      = Course.human_attribute_name(:description)
+  .col-md-10
+    = @model.description
+.row
+  .col-md-2
+    %label
+      Ações
+  .col-md-10
+    = action_course_links(@model)
+%hr
+%h4
+  Estudantes do Curso
+= render partial: 'students/students', locals: {students: @model.students}

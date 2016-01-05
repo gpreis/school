@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   has_many :classrooms, dependent: :destroy
+  has_many :students, through: :classrooms
  
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true

@@ -1,5 +1,5 @@
 class BaseController < ApplicationController
-  before_action :find_model, only: [:update, :edit, :destroy]
+  before_action :find_model, only: [:show, :update, :edit, :destroy]
 
   def index
     @models = model_class.all
@@ -37,6 +37,9 @@ class BaseController < ApplicationController
     @model.destroy!
     flash[:success] = "#{model_class.model_name.human} excluído com sucesso!"
     redirect_to url_for(model_class)
+  end
+
+  def show
   end
 
   private

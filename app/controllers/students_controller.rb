@@ -1,5 +1,4 @@
 class StudentsController < BaseController
-
   #index, new, create, edit, update, and destroy from BaseController
 
   private

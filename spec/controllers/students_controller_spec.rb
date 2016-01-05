@@ -13,6 +13,19 @@ describe StudentsController do
     end
   end
 
+  describe '#show' do
+    let(:student) { create(:student) }
+    before(:each) { get :show, id: student.id }
+
+    it 'renders the new template' do
+      expect(response).to render_template('show')
+    end
+
+    it 'assigns @model' do
+      expect(assigns(:model)).to eq(student)
+    end
+  end
+
   describe '#edit' do
     let(:student) { create(:student) }
     before(:each) { get :edit, id: student.id }

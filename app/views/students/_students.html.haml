@@ -1,0 +1,16 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th= Student.human_attribute_name(:id)
+      %th= Student.human_attribute_name(:name)
+      %th= Student.human_attribute_name(:register_number)
+      %th.col-md-2 
+        Ações
+  %tbody
+    - students.each do |student|
+      %tr
+        %th= student.id
+        %th= student.name
+        %th= student.register_number
+        %th.col-md-3
+          = action_student_links(student)

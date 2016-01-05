@@ -1,0 +1,16 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th= Course.human_attribute_name(:id)
+      %th= Course.human_attribute_name(:name)
+      %th= Course.human_attribute_name(:description)
+      %th.col-md-2 
+        Ações
+  %tbody
+    - courses.each do |course|
+      %tr
+        %th= course.id
+        %th= course.name
+        %th= course.description
+        %th.col-md-3
+          = action_course_links(course)
