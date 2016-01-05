@@ -4,17 +4,15 @@
       %h3.panel-title Informações do Estudante
     .panel-body
       .row
-        .col-md-6{class: extra_student_id_class(classroom)}
-          .form-group
-            = f.label :student_id
-            .select2
-              = collection_select(:classroom, :student_id, Student.all, :id, :to_s, {prompt: true, selected: classroom.student_id}, {class: "form-control required"})
-            = f.error :student_id
-        .col-md-6{class: extra_course_id_class(classroom)}
-          .form-group
-            = f.label :course_id
-            .select2
-              = collection_select(:classroom, :course_id, Course.all, :id, :to_s, {prompt: true, selected: classroom.course_id}, {class: "form-control required"})
-            = f.error :course_id
+        .col-md-6.form-group{class: extra_student_id_class(classroom)}
+          = f.label :student_id
+          .select2
+            = collection_select(:classroom, :student_id, Student.all, :id, :to_s, {prompt: true, selected: classroom.student_id}, {class: "form-control required"})
+          = f.error :student_id
+        .col-md-6.form-group{class: extra_course_id_class(classroom)}
+          = f.label :course_id
+          .select2
+            = collection_select(:classroom, :course_id, Course.all, :id, :to_s, {prompt: true, selected: classroom.course_id}, {class: "form-control required"})
+          = f.error :course_id
   %a.btn.btn-default{href: classrooms_path} Voltar
   = f.submit 'Salvar', class: "btn btn-success pull-right"

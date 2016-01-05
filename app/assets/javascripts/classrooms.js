@@ -8,25 +8,8 @@ School.classrooms = {
     pub.init = function(){
       priv.init_student_select2();
       priv.init_course_select2();
-      $("form").validate({
-        errorElement: "span",
-        errorClass: "help-block",
-
-        highlight: function (element, errorClass, validClass) {
-          $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-        },
-        unhighlight: function (element, errorClass, validClass) {
-          $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-        },
-
-        errorPlacement: function(error, element) {
-          if(element.parent('.input-group')) {
-            error.insertAfter(element.parent());
-          } else {
-            error.insertAfter(element);
-          }
-        }
-      });
+      $("form").validate(School.validations.default_options);
+      $('select').on('change', priv.valid_select2);
     };
 
     priv.init_student_select2 = function(){
@@ -43,6 +26,10 @@ School.classrooms = {
         allowClear: true,
         theme: "bootstrap"
       });
+    };
+
+    priv.valid_select2 = function() {
+      $(this).valid();
     };
 
     return pub;
