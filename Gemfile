@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'therubyracer', platforms: :ruby
 
 gem 'select2-rails', '4.0.0'
+gem 'jquery-validation-rails', '1.13.1'
 
 gem 'rails-assets-normalize-scss', '~> 3.0.1'
 gem 'rails-assets-stylish-scss', '~> 0.0.5'

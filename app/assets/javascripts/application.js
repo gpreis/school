@@ -15,6 +15,9 @@
 //= require turbolinks
 //= require bootstrap
 //= require select2
+//= require jquery.validate
+//= require jquery.validate.additional-methods
+//= require jquery.validate.localization/messages_pt_BR.js
 //= require_tree .
 
 // default init
