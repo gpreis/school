@@ -24,7 +24,11 @@
       Ações
   .col-md-10
     = action_course_links(@model)
+
 %hr
+
 %h4
   Estudantes do Curso
 = render partial: 'students/students', locals: {students: @model.students}
+
+= back_button(Course)

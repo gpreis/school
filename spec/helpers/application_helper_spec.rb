@@ -32,4 +32,22 @@ describe ApplicationHelper do
       it { assert_select 'a', text: 'Excluir', with: { href: course_url(course), method: :delete } }
     end
   end
+
+  describe '#back_button' do
+    context 'when the klass is Student' do
+      subject { helper.back_button(Student) }
+
+      it { assert_select 'a', text: 'Voltar', with: { href: students_url } }
+    end
+    context 'when the klass is Course' do
+      subject { helper.back_button(Course) }
+
+      it { assert_select 'a', text: 'Voltar', with: { href: courses_url } }
+    end
+    context 'when the klass is Classroom' do
+      subject { helper.back_button(Classroom) }
+
+      it { assert_select 'a', text: 'Voltar', with: { href: classrooms_url } }
+    end
+  end
 end

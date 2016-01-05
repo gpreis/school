@@ -14,5 +14,5 @@
           .select2
             = collection_select(:classroom, :course_id, Course.all, :id, :to_s, {prompt: true, selected: classroom.course_id}, {class: "form-control required"})
           = f.error :course_id
-  %a.btn.btn-default{href: classrooms_path} Voltar
+  = back_button(Classroom)
   = f.submit 'Salvar', class: "btn btn-success pull-right"

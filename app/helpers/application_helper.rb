@@ -9,6 +9,10 @@ module ApplicationHelper
     }
   end
 
+  def back_button(klass)
+    link_to 'Voltar', klass, class: 'btn btn-default'
+  end
+
   private
     def model_name(object)
       object.class.model_name.human.downcase

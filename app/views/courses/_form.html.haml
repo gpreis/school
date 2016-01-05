@@ -8,5 +8,5 @@
           = f.input :name, input_html: {class: "form-control"}
         .col-md-8.form-group
           = f.input :description, input_html: {class: "form-control"}
-  %a.btn.btn-default{href: courses_path} Voltar
+  = back_button(Course)
   = f.submit 'Salvar', class: "btn btn-success pull-right"
